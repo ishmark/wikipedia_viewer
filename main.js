@@ -18,7 +18,6 @@ function searchArticles(){
 }
 
 function parseJSON(data){
-	var articles = [];
 	var articlesData = data.query.search;
 	for (var i=0; i<articlesData.length; i++){
 		var article = new Article(
@@ -26,12 +25,12 @@ function parseJSON(data){
 			articlesData[i].snippet,
 			articlesData[i].pageid
 			);
-		articles.push(article);
 		var pageUrl = "http://en.wikipedia.org/wiki?curid=" + article.pageID;
-		var html = "<li><div><em>" + article.title + "</em> <p>" + article.snippet + "</p><a href='"+ pageUrl +"' target='_blank'>Read More</a></div></li>";
+		var html = "<div class='col-md-12 result-cell'><b>" + article.title + "</b> <p>" + article.snippet + "</p><a href='"+ pageUrl +"' target='_blank' class='pull-right'>Read More</a></div><div class=col-md-12><br/></div>";
 		$("#results").append(html);
+			console.log(article);
+
 	}
-	console.log(articles);
 }
 
 function Article(title, snippet, pageID){

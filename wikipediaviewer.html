@@ -3,6 +3,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
@@ -12,19 +13,26 @@
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-
-	<div>
-		<p class="text-center">
-			<a href='https://en.wikipedia.org/wiki/Special:Random' target="_blank">Click here for a random article</a>
-		</p>
-		<form>
-			<input type = "text" name = "search" id="search" placeholder = "Search...">
-		</form>
-		<button id = "mySearch" onclick="searchArticles()">Try</button>
-		<ul id="results">
-		</ul>
+	<div class="container-fluid">
+		<div class="row">
+			<h2 class="col-md-12 text-center">Wikipedia Viewer</h2>
+			<div class="container">
+			<div class="col-md-8">
+				<form class="form-inline">
+					<input type = "text" name = "search" id="search" placeholder = "Search...">
+					<span class="col-xs-1"></span>
+					<button id = "mySearch" onclick="searchArticles()" type="button"><i class="fa fa-search"></i></button>
+					<span class="col-xs-1"></span>
+					<a href='https://en.wikipedia.org/wiki/Special:Random' target="_blank"><button id="randomArticle" type="button"><i class="fa fa-random"></i></a></button>
+				</form>
+			</div>
+			</div>
+			<div class="col-md-12"><br /></div>
+			<div class="container">
+				<div id="results" class="row">
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
-
-
