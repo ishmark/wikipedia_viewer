@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+	src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+	integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+	crossorigin="anonymous"></script>
+	<script>
+		function searchArticles(){
+			var query = $("#search").val();
+			var wikiApi = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + query + "&prop=revisions&rvprop=content&format=json&callback=?";
+
+			$.ajax({
+				type: "GET",
+				url: wikiApi,
+				dataType: 'jsonp',
+				success: function(data){
+					console.log(data);
+
+				},
+				error: function(){
+					console.log("Second request fail")
+				}
+			});
+		}
+
+		/*function Article(name, description, link){
+			this.name = name;
+			this.description = description;
+			this.link = link;
+		}*/
+
+		function parseJSON(data){
+			// At 0th position of the data array contains the search query so we don't need that
+			for (var i = 1; i<data.length - 1; i++){
+				for (var j = 1; j < data[i].length - 1; j++){
+					
+				}
+			}
+		}
+	</script>
+	<div>
+		<p class="text-center"><a href='https://en.wikipedia.org/wiki/Special:Random' target="_blank">Click here for a random article</a></p>
+		<form>
+			<input type = "text" name = "search" id="search" placeholder = "Search...">
+		</form>
+		<button id = "mySearch" onclick="searchArticles()">Try</button>
+	</div>
+</body>
+</html>
